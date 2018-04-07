@@ -1,0 +1,8 @@
+{
+  "name": "veilletechno",
+  "app_id": "993b9155",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
