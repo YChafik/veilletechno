@@ -17,7 +17,13 @@ export class AccueilPage {
     private dataService: DataService) {
   }
 
+  /*
   ionViewWillLoad() {
+    this.technologies = this.dataService.getAllTechnologies();
+    console.log('thechnos loaded: ', this.technologies);
+  }*/
+
+  ionViewWillEnter() {
     this.technologies = this.dataService.getAllTechnologies();
     console.log('thechnos loaded: ', this.technologies);
   }

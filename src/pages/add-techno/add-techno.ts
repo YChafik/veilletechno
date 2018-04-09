@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { DataService } from '../../providers/data/data.service';
+import { Technology } from '../../models/technology';
 
 @Component({
   selector: 'page-add-techno',
@@ -8,11 +10,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class AddTechnoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  categories : String[];
+  technology: Technology = { name: '', category:''};
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              private dataService: DataService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddTechnoPage');
+  ionViewWillLoad() {
+    this.categories = this.dataService.getAllCategories();
+  }
+
+  addTechnology() {
+    this.dataService.addTechnology(this.technology);
+    this.technology = { name: '', category: ''};
   }
 
 }
