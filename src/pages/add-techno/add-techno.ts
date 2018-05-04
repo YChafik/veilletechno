@@ -10,16 +10,25 @@ import { Technology } from '../../models/technology';
 })
 export class AddTechnoPage {
 
-  categories : String[];
-  technology: Technology = { name: '', category:''};
+  categories: string[];
+  technology: Technology = { name: '', category: ''};
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams,
-              private dataService: DataService) {
-  }
+  constructor(
+    // Public
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    // Private
+    private dataService: DataService
+  
+  ) {}
+
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad AddTechnoPage');
+  // }
 
   ionViewWillLoad() {
-    this.categories = this.dataService.getAllCategories();
+    console.log('ionViewWillLoad addTechnoPage');
+    this.categories = this.dataService.getAllCategories()
   }
 
   addTechnology() {

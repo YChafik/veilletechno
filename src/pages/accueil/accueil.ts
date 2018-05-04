@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
-import { DataService } from '../../providers/data/data.service';
-import { Technology } from '../../models/technology';
+import { DataService } from '../../providers/data/data.service'
+import { Technology } from '../../models/technology'
 
 @Component({
   selector: 'page-accueil',
@@ -12,23 +12,32 @@ export class AccueilPage {
 
   technologies: Technology[];
 
-  constructor(public navCtrl: NavController,
+  constructor(
+    // Public
+    public navCtrl: NavController, 
     public navParams: NavParams,
-    private dataService: DataService) {
+    // Private
+    private dataService: DataService,
+    private loadingController: LoadingController) {
   }
 
-  /*
-  ionViewWillLoad() {
-    this.technologies = this.dataService.getAllTechnologies();
-    console.log('thechnos loaded: ', this.technologies);
-  }*/
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad AccueilPage');
+  // }
 
   ionViewWillEnter() {
+    const loader = this.loadingController.create({
+      content: 'Veuillez patienter',
+      duration: 1000
+    });
+    loader.present();
     this.technologies = this.dataService.getAllTechnologies();
-    console.log('thechnos loaded: ', this.technologies);
+    console.log(this.technologies);
+    loader.dismiss();
   }
 
   search(event){
     this.technologies = this.dataService.search(event.target.value.trim());
   }
+
 }

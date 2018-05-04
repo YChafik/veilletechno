@@ -1,8 +1,10 @@
-import { Technology } from "./technology";
+import { Technology } from './technology';
 
 export interface Schedule {
-    techonolgy: Technology;
-    priority: String;
-    remark: String;
-    duration: number;
+    name: string;
+    date: string;
+    technology: Technology;
+    priority: string;
+    remark: string;
+    duration: number; 
 }

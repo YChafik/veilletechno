@@ -1,4 +1,4 @@
-export interface Technology{
-    name : String;
-    category : String;
+export interface Technology {
+    name: string;
+    category: String;
 }
