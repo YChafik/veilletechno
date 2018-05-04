@@ -37,6 +37,7 @@ export class SchedulePage {
   ) {}
 
   ionViewWillEnter() {
+    this.technologies = this.dataService.getAllTechnologies();
     this.categories = this.dataService.getAllCategories(); 
     this.priorities = this.dataService.getAllPriorities();
   }
