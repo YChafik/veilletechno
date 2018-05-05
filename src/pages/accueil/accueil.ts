@@ -21,19 +21,13 @@ export class AccueilPage {
     private loadingController: LoadingController) {
   }
 
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad AccueilPage');
-  // }
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AccueilPage');
+  }
 
   ionViewWillEnter() {
-    const loader = this.loadingController.create({
-      content: 'Veuillez patienter',
-      duration: 1000
-    });
-    loader.present();
-    this.technologies = this.dataService.getAllTechnologies();
-    console.log(this.technologies);
-    loader.dismiss();
+    console.log('ionViewWillEnter');
+    this.dataService.getAllTechnologies().then( data => this.technologies = data );
   }
 
   search(event){

@@ -22,7 +22,7 @@ export class ScheduleListPage {
   }
 
   ionViewWillEnter() {
-    this.schedules =this.dataService.getAllSchedules();
+    this.dataService.getAllSchedules().then(data => this.schedules = data);
     console.log(this.schedules);
 
   }
